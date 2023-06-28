@@ -1,0 +1,52 @@
+<canvas width="600" height="400"></canvas>
+
+<script>
+
+    function desenhaRetangulo(x, y, largura, altura, cor) {
+        var tela = document.querySelector('canvas');
+        var pincel = tela.getContext('2d');
+
+        pincel.fillStyle=cor;
+        pincel.fillRect(x,y, largura, altura);
+        pincel.strokeStyle='black';
+        pincel.strokeRect(x,y, largura, altura);
+    }
+
+    function desenhaTexto(x, y, texto) {
+        var tela = document.querySelector('canvas');
+        var pincel = tela.getContext('2d');
+
+        pincel.font='15px Georgia';
+        pincel.fillStyle='black';
+        pincel.fillText(texto, x, y);    
+    }
+
+    function desenhaBarra(x){
+
+        desenhaRetangulo(x, 50, 50, 50, 'blue');
+        desenhaRetangulo(x, 100, 50, 25, 'green');
+        desenhaRetangulo(x, 125, 50, 20, 'yellow');
+        desenhaRetangulo(x, 145, 50, 5, 'red');
+
+        desenhaRetangulo(x = x + 100, 50, 50, 65, 'blue');
+        desenhaRetangulo(x, 115, 50, 20, 'green');
+        desenhaRetangulo(x, 135, 50, 13, 'yellow');
+        desenhaRetangulo(x, 148, 50, 2, 'red');
+    }
+
+desenhaTexto(60,25,'2015');
+desenhaTexto(160,25,'2016');
+
+desenhaBarra(50);
+
+desenhaRetangulo(225, 50, 20, 20, 'blue');
+desenhaRetangulo(225, 75, 20, 20, 'green');
+desenhaRetangulo(225, 100, 20, 20, 'yellow');
+desenhaRetangulo(225, 125, 20, 20, 'red');
+
+desenhaTexto(250,63,'Chrome');
+desenhaTexto(250,88,'Firefox');
+desenhaTexto(250,114,'Safari');
+desenhaTexto(250,140,'Outros');
+
+</script>

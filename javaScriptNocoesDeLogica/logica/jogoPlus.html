@@ -1,0 +1,27 @@
+<meta charset="UTF-8">
+
+<input/>
+<button>Numero escolhido</button>
+
+<script>
+	
+var segredo = 5;
+
+var dados = document.querySelector("input");
+dados.focus();
+
+function verifica() {
+	
+	if (dados.value == segredo) {
+		alert("You winnnnnn!");
+	} else {
+		alert("You lose!");
+	}
+	dados.value = "";
+	dados.focus();
+}	
+
+var button = document.querySelector("button");
+button.onclick = verifica;
+
+</script>

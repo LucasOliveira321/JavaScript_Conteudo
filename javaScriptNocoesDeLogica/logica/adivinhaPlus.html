@@ -1,0 +1,80 @@
+<meta charset="UTF-8">
+
+<input/>
+<button>Escolha um número</button>
+
+<script>
+	
+	function sorteia() {
+
+		return Math.round(Math.random() * 10);
+
+	}
+
+	function sorteiaNumeros(quantidade) {
+
+		var segredos2 = [];
+		var numero = 1;
+
+		while(numero <= quantidade) {
+
+			var numeroAleatorio = sorteia();
+			if (numeroAleatorio !== 0) {
+
+			var achou = false;
+
+			for (var posicao = 0; posicao < segredos2.length; posicao++) {
+
+				if (segredos2[posicao] == numeroAleatorio) {
+					achou = true;
+					break;
+				}
+			}
+			
+			if (achou == false) {
+				segredos2.push(numeroAleatorio);
+				numero++;
+			}
+			}
+		}
+
+		return segredos2;
+	}
+
+	var segredos = sorteiaNumeros(5);
+
+	console.log(segredos);
+
+
+
+
+	var dados = document.querySelector("input");
+		dados.focus();
+
+	function verifica() {
+
+	var achou = false;
+
+	for(var posicao = 0; posicao < segredos.length; posicao++) {
+
+		if (dados.value == segredos[posicao]) {
+
+			alert("Você acertou!");
+			achou = true;
+			break;
+		}
+	}
+
+	if (achou == false) {
+		alert("Você errou");
+	}
+
+	dados.value = "";
+	dados.focus();
+
+	}	
+
+	var botao = document.querySelector("button");
+		botao.onclick = verifica;
+
+</script>
