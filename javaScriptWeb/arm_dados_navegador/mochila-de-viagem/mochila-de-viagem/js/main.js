@@ -1,10 +1,25 @@
 const form = document.getElementById("novoItem");
-const lista = document.getElementById("lista")
+const lista = document.getElementById("lista");
+// verificando se já foi criado um array com os itens, 
+// caso já tenha um array "item", ele vai atribuir os itens
+// já cadastrados ao array, caso contrario vai criar um array vazio
+// JSON.PARSE serve para o HTML identificar itens como array
+const itens = JSON.parse(localStorage.getItem("item")) || [];
+
+itens.array.forEach( (element) => {
+    console.log(element.nome, element.quantidade)
+});
 
 form.addEventListener("submit", (evento) =>{
     evento.preventDefault()
 
-    criaElemento(evento.target.elements['nome'].value , evento.target.elements['quantidade'].value)
+    const nome = evento.target.elements['nome'];
+    const quantidade = evento.target.elements['quantidade'];
+
+    criaElemento(nome.value, quantidade.value)
+
+    nome.value = ""
+    quantidade.value = ""
 });
 
 function criaElemento(nome, quantidade){
@@ -31,4 +46,12 @@ function criaElemento(nome, quantidade){
     
     lista.appendChild(novoItem)
 
+    // localStorage é a memoria do site que armazena as informações importantes
+    const itemAtual = {
+        "nome": nome,
+        "quantidade": quantidade
+    }
+    itens.push(itemAtual)
+    // O metodo JSON.stringify(itemAtual) serve para salvar o item como string e não como objeto
+    localStorage.setItem("item", JSON.stringify(itens))
 }
