@@ -17,3 +17,12 @@
 ## Screenshots
 ![Screenshot da tela inicial do AluraPlay](https://imgur.com/aymxEsh.png)
 ![Screenshot da tela do formulário do AluraPlay](https://imgur.com/ShNADf2.png)
+
+- Terminal
+npm init
+npm install json-server
+npx json-server --watch db.json
+
+- Power Shell
+Set-ExecutionPolicy RemoteSigned
+A
